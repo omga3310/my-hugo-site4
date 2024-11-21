@@ -1,141 +1,32 @@
-/* 全域樣式 */
 body {
     margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
     overflow: hidden;
-    background: #000;
+    background: linear-gradient(to bottom, #3b3b3b, #1f1f1f);
 }
 
-.scene {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.background img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.7);
-}
-
-/* 陽光效果 */
-.sunlight {
+.fragment {
     position: absolute;
-    top: 20%;
-    left: 50%;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0) 60%);
-    transform: translate(-50%, -50%);
-    animation: sunlight-move 5s infinite alternate;
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: float 5s infinite ease-in-out;
+    transform: rotate3d(1, 1, 0, 45deg);
 }
 
-@keyframes sunlight-move {
-    from {
-        transform: translate(-45%, -50%);
-    }
-    to {
-        transform: translate(-55%, -50%);
-    }
-}
-
-/* 雨滴效果 */
-.rain {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 10%, transparent 90%);
-    background-size: 2px 100px;
-    animation: rain-fall 1s infinite linear;
-}
-
-@keyframes rain-fall {
-    from {
-        background-position: 0 -100px;
-    }
-    to {
-        background-position: 0 100%;
-    }
-}
-
-/* 玻璃碎片如蝴蝶般飛舞 */
-.butterfly-glass {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.glass-piece {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    animation: glass-fly 4s infinite linear;
-}
-
-.glass-piece:nth-child(1) {
-    top: 0;
-    left: 0;
-    animation-delay: 0s;
-}
-
-.glass-piece:nth-child(2) {
-    top: 10%;
-    left: 20%;
-    animation-delay: 0.5s;
-}
-
-.glass-piece:nth-child(3) {
-    top: 30%;
-    left: 50%;
-    animation-delay: 1s;
-}
-
-.glass-piece:nth-child(4) {
-    top: 50%;
-    left: 70%;
-    animation-delay: 1.5s;
-}
-
-.glass-piece:nth-child(5) {
-    top: 70%;
-    left: 90%;
-    animation-delay: 2s;
-}
-
-@keyframes glass-fly {
+@keyframes float {
     0% {
-        transform: translateY(0) rotate(0deg);
+        transform: translate3d(0, 0, 0) rotate(0deg);
         opacity: 1;
     }
     50% {
-        transform: translateY(-50px) rotate(180deg);
-        opacity: 0.8;
+        transform: translate3d(100px, -150px, 0) rotate(180deg);
+        opacity: 0.7;
     }
     100% {
-        transform: translateY(0) rotate(360deg);
+        transform: translate3d(-50px, -300px, 0) rotate(360deg);
         opacity: 0;
     }
 }
 
-/* 歡迎文字樣式 */
-.welcome-text {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    text-align: center;
-}
-
-.welcome-text h1 {
-    font-size: 3em;
-}
