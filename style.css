@@ -1,7 +1,8 @@
 body {
     margin: 0;
     overflow: hidden;
-    background: linear-gradient(to bottom, #3b3b3b, #1f1f1f);
+    background: url('images/baroque_ruins.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 .fragment {
